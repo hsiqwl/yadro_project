@@ -24,5 +24,5 @@ add_subdirectory(app/App)
 SET(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 add_compile_options(-g -O0)
 
-add_executable(yadro main.cpp)
+add_executable(main main.cpp)
 target_link_libraries(yadro app)

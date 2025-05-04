@@ -1,0 +1,28 @@
+cmake_minimum_required(VERSION 3.30)
+project(yadro)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_subdirectory(components/MonitoringSystem)
+add_subdirectory(components/ClubState)
+add_subdirectory(components/LoggingSystem)
+add_subdirectory(components/AccountingSystem)
+add_subdirectory(components/ReportingSystem)
+add_subdirectory(core/Events)
+add_subdirectory(core/EventHandlers/EventHandler)
+add_subdirectory(core/EventHandlers/ClientQueueManager)
+add_subdirectory(core/EventHandlers/Accountant)
+add_subdirectory(core/EventHandlers/EventReportGenerator)
+add_subdirectory(core/EventHandlers/AccountingReportGenerator)
+add_subdirectory(core/EventListener)
+add_subdirectory(core/EventLogger)
+add_subdirectory(core/AccountingLogger)
+add_subdirectory(parser)
+add_subdirectory(app/Orchestrator)
+add_subdirectory(app/App)
+
+SET(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+add_compile_options(-g -O0)
+
+add_executable(yadro main.cpp)
+target_link_libraries(yadro app)
